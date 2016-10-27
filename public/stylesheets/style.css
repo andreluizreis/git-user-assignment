@@ -1,0 +1,48 @@
+/* Custom Stylesheet */
+
+.body{
+    font-size: 100%;
+}
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+.app-logo{
+    height:45px;
+    margin-right: 10px;
+}
+.app-title-logo{
+    font-size: 2em;
+}
+.app-background{
+    background-image: url("../images/background.png");
+}
+.search-bar{
+    background-color: wheat;
+    width:600px;
+}
+.top-purple-color{
+    background-color: #573D7D;
+}
+.card-user-text-margin {
+    margin-left:6px;
+}
+.card-icon-margin {
+    margin-left:12px;
+}
+footer.page-footer{
+    margin-top: 1px;
+}
+a.card-hyperlink{
+    text-decoration: none;
+    color: black;
+}
+a.card-blog-hyperlink{
+     color:orange;
+ }
+a.card-blog-hyperlink:hover{
+    color:orange;
+    text-decoration: underline;
+}

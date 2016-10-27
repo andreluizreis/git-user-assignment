@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Git User</title>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Import FontAwesome -->
+    <script src="https://use.fontawesome.com/84c52d152c.js"></script>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/stylesheets/materialize.min.css" media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<nav class="top-purple-color" role="navigation">
+    <div class="nav-wrapper container">
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="valign-wrapper">
+                    <img class="app-logo" src="/images/github-icon.png" alt="logo"/>
+                    <a href="#" class="app-title-logo">Git User Finder</a>
+                </div>
+            </div>
+            <div class="col s12 m5"></div>
+            <div class="col s12 m3">
+                <ul class="right hide-on-med-and-down right-aligned">
+                    <li><a href="https://ca.linkedin.com/in/andreluizcareis">André Luiz Reis</a></li>
+                </ul>
+            </div>
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="#">Git User Finder</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </div>
+</nav>
+
+<div class="section no-pad-bot app-background" id="index-banner">
+    <div class="container app-container">
+        <h1 class="header center white-text light">Git User Finder</h1>
+        <div class="row center">
+            <h5 class="header col s12 white-text light">Search for users and their repositories</h5>
+        </div>
+
+        <!-- Search Bar -->
+        <nav>
+            <div class="nav-wrapper deep-purple lighten-3">
+                <form action="" method="post">
+                    <div center class="input-field">
+                        <input name="search" id="search" type="search" required>
+                        <label for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+        </nav>
+        <br><br>
+    </div>
+</div>
+
+<% if (user != null && user != undefined) { %>
+
+<div class="container ">
+    <div class="section">
+        <!--   Cards Section   -->
+
+        <!-- User Card -->
+        <div class="row" >
+            <div class="col s12 m3">
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <img src="<%= user.avatar_url %>">
+                        <span class="card-title"><%= user.name %></span>
+                    </div>
+                    <div class="card-content">
+                        <div class="valign-wrapper">
+                            <i class="small material-icons">perm_identity</i>
+                            <span class="card-user-text-margin truncate"><%= user.login %></span>
+                        </div>
+                        <% if(user.email != undefined){ %>
+                        <div class="valign-wrapper">
+                            <i class="small material-icons">email</i>
+                            <span class="card-user-text-margin truncate"><%= user.email %></span>
+                        </div>
+                        <% } %>
+                        <% if(user.company != undefined){ %>
+                        <div class="valign-wrapper">
+                            <i class="small material-icons">work</i>
+                            <span class="card-user-text-margin truncate"><%= user.company %></span>
+                        </div>
+                        <% } %>
+                        <% if(user.blog != undefined){ %>
+                        <div class="valign-wrapper ">
+                            <i class="small material-icons">library_books</i>
+                            <span class="card-user-text-margin truncate">
+                                <a class="card-blog-hyperlink" href="<%= user.blog %>" target="_blank"><%= user.blog %></a>
+                            </span>
+
+                        </div>
+                        <% } %>
+                        <% if(user.location != undefined){ %>
+                        <div class="valign-wrapper">
+                            <i class="small material-icons">location_on</i>
+                            <span class="card-user-text-margin truncate"><%= user.location %></span>
+                        </div>
+                        <% } %>
+                    </div>
+                    <div class="card-action truncate">
+                        <a class="card-blog-hyperlink" href="<%= user.html_url %>" target="_blank">Git Hub Profile</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Project Card -->
+            <% for (var i = 0; i < projects.length; i++) {%>
+            <div class="col s12 m3">
+                <div class="card white darken-1 hoverable">
+                    <a class="card-hyperlink" href="<%= projects[i].html_url %>" target="_blank">
+                        <div class="card-content">
+                            <span class="card-title purple-text truncate"><%= projects[i].name %></span>
+                            <p><%= projects[i].description %></p>
+                        </div>
+                        <div class="card-action valign-wrapper">
+                            <span class="left"><%= projects[i].language %></span>
+                            <i class="small material-icons card-icon-margin">stars</i> <%= projects[i].stargazers_count %>
+                            <i class="fa fa-code-fork fa-2x card-icon-margin" aria-hidden="true"></i> <%= projects[i].forks_count %>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <%}%>
+        </div>
+        <br><br>
+    </div>
+</div>
+
+<% } else { %>
+<div class="app-background" style="height:194px"></div>
+<% } %>
+
+
+<footer class="page-footer purple darken-3 app-background">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Git User Finder</h5>
+                <p class="grey-text text-lighten-4">Clearpath Robotics Assignment</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            Made by <a class="orange-text text-lighten-3" href="https://ca.linkedin.com/in/andreluizcareis">
+                André Luiz Reis</a>
+        </div>
+    </div>
+</footer>
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="/javascripts/materialize.js"></script>
+<script src="/javascripts/init.js"></script>
+
+</body>
+</html>
