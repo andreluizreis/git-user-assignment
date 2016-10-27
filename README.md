@@ -8,8 +8,9 @@ $ npm start
 ```
 
 Open the browser on the address: 
-localhost:3000
+
+http://localhost:3000
 
 Bug:
 There is a problem with the collumns with empty spaces. 
-I didn't know how to fix it yet. 
+I didn't have time to fix it yet. 
