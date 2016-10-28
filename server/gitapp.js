@@ -27,10 +27,14 @@ GitApp.prototype.searchUser = function(userName, callback) {
 	console.log('***** Search User Method ******');
 	console.log('Parameter =  ' + userName);
 
+    // Remove spaces
+    userName = userName.replace(/\s/g, '');
+
 	var client = github.client();
 
     client.get(`/users/${userName}`, {}, function (err, status, body, headers) {
 
+        console.log('ERROR => ' + err);
         // Test the result
         if(body.login == null || body.login == undefined)
         {
@@ -64,6 +68,9 @@ GitApp.prototype.searchUser = function(userName, callback) {
 GitApp.prototype.searchProjects = function(userName, callback) {
     console.log('***** Search Projects Method ******');
     console.log('Parameter =  ' + userName);
+
+    // Remove spaces
+    userName = userName.replace(/\s/g, '');
 
     var client = github.client();
 
