@@ -1,6 +1,7 @@
 /* Custom Stylesheet */
 
-.body{
+.html,body{
+    height:100%;
     font-size: 100%;
 }
 .icon-block {
