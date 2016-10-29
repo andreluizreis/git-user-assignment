@@ -46,3 +46,6 @@ a.card-blog-hyperlink:hover{
     color:orange;
     text-decoration: underline;
 }
+.top-margin{
+    margin-top: 25px;
+}

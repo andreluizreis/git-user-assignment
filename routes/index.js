@@ -6,10 +6,8 @@ var GitApp = require('../server/gitapp');
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-    var user = null;
-    res.render('index', { user: user});
-
-    console.log('======= ROUTER.GET ======= ');
+    // The user is null for the website doesn't load the element div container.
+    res.render('index', { user: null, userNotFound: false});
 });
 
 /* POST method route */
@@ -26,9 +24,11 @@ router.post('/', function (req, res) {
                     if(!err) {
                         console.log('Route Callback data = ' + user);
                         console.log('Route Callback projects = ' + projects.length);
-                        res.render('index', {user: user, projects: projects});
+                        res.render('index', {user: user, projects: projects, userNotFound: false});
                     }
                 });
+            } else {
+                res.render('index', {user: null, projects: null, userNotFound: true});
             }
         });
 	}
