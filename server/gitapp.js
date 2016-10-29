@@ -1,4 +1,3 @@
-
 /******************************************
  *            Git App Class
  *
@@ -21,28 +20,29 @@ function GitApp() {
 /**
  * Search User
  * @param userName
+ * @param callback
  * @returns {object} user object
  */
-GitApp.prototype.searchUser = function(userName, callback) {
-	console.log('***** Search User Method ******');
-	console.log('Parameter =  ' + userName);
+GitApp.prototype.searchUser = function (userName, callback) {
+    console.log('***** Search User Method ******');
+    console.log('Parameter =  ' + userName);
 
-    // Remove spaces
+    // Remove spaces from the username
     userName = userName.replace(/\s/g, '');
 
-	var client = github.client();
+    // Create client to access GitHub API
+    var client = github.client();
 
     client.get(`/users/${userName}`, {}, function (err, status, body, headers) {
 
-        console.log('ERROR => ' + err);
-        // Test the result
-        if(body.login == null || body.login == undefined)
-        {
+        // If body is undefined, return error.
+        if (body == null) {
             console.log('Error. User Body is undefined.');
             // Return user error
             callback(err, null);
-            //return;
+            return;
         }
+
         // User object with the result data
         var userObj = {
             avatar_url: body.avatar_url,
@@ -62,35 +62,32 @@ GitApp.prototype.searchUser = function(userName, callback) {
 
 /**
  * Search Projects
- * @param projects
  * @return {object} projects array
+ * @param userName
+ * @param callback
  */
-GitApp.prototype.searchProjects = function(userName, callback) {
+GitApp.prototype.searchProjects = function (userName, callback) {
     console.log('***** Search Projects Method ******');
     console.log('Parameter =  ' + userName);
 
-    // Remove spaces
+    // Remove spaces from the username
     userName = userName.replace(/\s/g, '');
 
     var client = github.client();
 
     client.get(`https://api.github.com/users/${userName}/repos`, {}, function (err, status, body, headers) {
 
-        // Test the result
-        if(body[0].name == null || body[0].name == undefined)
-        {
+        // If body is undefined, return error.
+        if (body == null) {
             // Return error
             callback(err, null);
-            //return;
+            return;
         }
-
-        console.log('***** searchProjects Method ******');
-        console.log(`Projects Length = ${body.length}`);
 
         // Project Array
         var projects = [];
 
-        for (var i = 0 ; i < body.length; i++){
+        for (var i = 0; i < body.length; i++) {
 
             // Object with project properties
             var projectObj = {
@@ -119,7 +116,7 @@ GitApp.prototype.searchProjects = function(userName, callback) {
  * @param b
  * @returns {number}
  */
-function compare(a,b) {
+function compare(a, b) {
     if (a.forks_count > b.forks_count)
         return -1;
     if (a.forks_count < b.forks_count)
