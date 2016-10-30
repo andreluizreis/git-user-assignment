@@ -19,7 +19,7 @@
             <div class="col s12 m4">
                 <div class="valign-wrapper">
                     <img class="app-logo" src="/images/github-icon.png" alt="logo"/>
-                    <a href="#" class="app-title-logo">Git Finder</a>
+                    <a href="/" class="app-title-logo">Git Finder</a>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
 
 <% if (user != null) { %>
 
-<div class="container ">
+<div class="container">
     <div class="section">
         <!--   Cards Section   -->
 
@@ -102,7 +102,6 @@
                 </div>
             </div>
 
-
             <!-- Project Card -->
             <% for (var i = 0; i < projects.length; i++) {%>
             <div class="col s12 m3">
@@ -127,6 +126,7 @@
 </div>
 
 <% } else { %>
+    <!-- The search result is null, display user not found. -->
     <% if (userNotFound) { %>
     <div class="container">
         <div class="row">
@@ -138,12 +138,19 @@
             </div>
         </div>
     </div>
-    <% } else { %>
-        <div class="app-background" style="height:194px"></div>
-    <% } %>
-<% } %>
+<% } else { %>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m4 push-m4">
+                <div class="center-align top-margin">
+                    <img class="app-octocat" src="/images/octocat.png" alt="octocat"/>
+                </div>
+            </div>
+        </div>
+    </div>
+<% }} %>
 
-
+<!-- Footer -->
 <footer class="page-footer purple darken-3 app-background">
     <div class="container">
         <div class="row">
@@ -160,7 +167,6 @@
         </div>
     </div>
 </footer>
-
 
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

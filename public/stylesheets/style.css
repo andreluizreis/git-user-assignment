@@ -1,9 +1,15 @@
 /* Custom Stylesheet */
 
-.html,body{
+.html,body, #container {
     height:100%;
     font-size: 100%;
 }
+
+body > #container {
+    height: auto;
+    min-height: 100%;
+}
+
 .icon-block {
   padding: 0 15px;
 }
@@ -33,9 +39,7 @@
 .card-icon-margin {
     margin-left:12px;
 }
-footer.page-footer{
-    margin-top: 1px;
-}
+
 a.card-hyperlink{
     text-decoration: none;
     color: black;
@@ -49,4 +53,14 @@ a.card-blog-hyperlink:hover{
 }
 .top-margin{
     margin-top: 25px;
+}
+
+.app-footer-bottom {
+    position: absolute;
+    width: 100%;
+    bottom:0;
+}
+
+.app-octocat {
+    width: 70%;
 }
