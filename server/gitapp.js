@@ -98,7 +98,6 @@ GitApp.prototype.searchProjects = function (userName, callback) {
                 stargazers_count: body[i].stargazers_count,
                 watchers_count: body[i].watchers_count,
                 forks_count: body[i].forks_count,
-
             };
             projects.push(projectObj);
         }
@@ -110,16 +109,16 @@ GitApp.prototype.searchProjects = function (userName, callback) {
 };
 
 /**
- * Compare the number of forks.
- * Sort for the highest fork project.
+ * Compare the number of stargazers_count (stars).
+ * Sort for the highest stargazers_count project.
  * @param a
  * @param b
  * @returns {number}
  */
 function compare(a, b) {
-    if (a.forks_count > b.forks_count)
+    if (a.stargazers_count > b.stargazers_count)
         return -1;
-    if (a.forks_count < b.forks_count)
+    if (a.stargazers_count < b.stargazers_count)
         return 1;
     return 0;
 }
