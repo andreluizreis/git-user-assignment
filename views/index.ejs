@@ -104,61 +104,26 @@
 
             <!-- Project Card -->
 
+            <% for (var i = 0; i < 3; i++) {%>
             <!-- Column 1 -->
             <div class="col s12 m3">
-                <% for (var i = 0; i < projects.length; i += 3) {%>
+                <% for (var j = i; j < projects.length; j += 3) {%>
                 <div class="card white darken-1 hoverable">
-                    <a class="card-hyperlink" href="<%= projects[i].html_url %>" target="_blank">
+                    <a class="card-hyperlink" href="<%= projects[j].html_url %>" target="_blank">
                         <div class="card-content">
-                            <span class="card-title purple-text truncate"><%= projects[i].name %></span>
-                            <p><%= projects[i].description %></p>
+                            <span class="card-title purple-text truncate"><%= projects[j].name %></span>
+                            <p><%= projects[j].description %></p>
                         </div>
                         <div class="card-action valign-wrapper">
-                            <span class="left"><%= projects[i].language %></span>
-                            <i class="small material-icons card-icon-margin">stars</i> <%= projects[i].stargazers_count %>
-                            <i class="fa fa-code-fork fa-2x card-icon-margin" aria-hidden="true"></i> <%= projects[i].forks_count %>
+                            <span class="left"><%= projects[j].language %></span>
+                            <i class="small material-icons card-icon-margin">stars</i> <%= projects[j].stargazers_count %>
+                            <i class="fa fa-code-fork fa-2x card-icon-margin" aria-hidden="true"></i> <%= projects[j].forks_count %>
                         </div>
                     </a>
                 </div>
                 <%}%>
             </div>
-            <!-- Column 2 -->
-            <div class="col s12 m3">
-                <% for (var i = 1; i < projects.length; i += 3) {%>
-                <div class="card white darken-1 hoverable">
-                    <a class="card-hyperlink" href="<%= projects[i].html_url %>" target="_blank">
-                        <div class="card-content">
-                            <span class="card-title purple-text truncate"><%= projects[i].name %></span>
-                            <p><%= projects[i].description %></p>
-                        </div>
-                        <div class="card-action valign-wrapper">
-                            <span class="left"><%= projects[i].language %></span>
-                            <i class="small material-icons card-icon-margin">stars</i> <%= projects[i].stargazers_count %>
-                            <i class="fa fa-code-fork fa-2x card-icon-margin" aria-hidden="true"></i> <%= projects[i].forks_count %>
-                        </div>
-                    </a>
-                </div>
-                <%}%>
-            </div>
-            <!-- Column 3 -->
-            <div class="col s12 m3">
-                <% for (var i = 2; i < projects.length; i += 3) {%>
-                <div class="card white darken-1 hoverable">
-                    <a class="card-hyperlink" href="<%= projects[i].html_url %>" target="_blank">
-                        <div class="card-content">
-                            <span class="card-title purple-text truncate"><%= projects[i].name %></span>
-                            <p><%= projects[i].description %></p>
-                        </div>
-                        <div class="card-action valign-wrapper">
-                            <span class="left"><%= projects[i].language %></span>
-                            <i class="small material-icons card-icon-margin">stars</i> <%= projects[i].stargazers_count %>
-                            <i class="fa fa-code-fork fa-2x card-icon-margin" aria-hidden="true"></i> <%= projects[i].forks_count %>
-                        </div>
-                    </a>
-                </div>
-                <%}%>
-            </div>
-
+            <%}%>
         </div>
         <br><br>
     </div>
