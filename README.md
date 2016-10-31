@@ -1,6 +1,8 @@
 # git-user-assignment
 Search for a user and shows your profile and projects.
 
+### Demo: https://git-user-assignment.herokuapp.com/
+
 ### Instructions:
 ```sh
 $ npm install
@@ -11,6 +13,4 @@ Open the browser on the address:
 
 http://localhost:3000
 
-Bug:
-There is a problem with the collumns with empty spaces. 
-I didn't have time to fix it yet. 
+
